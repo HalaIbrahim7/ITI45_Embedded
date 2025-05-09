@@ -15,12 +15,12 @@
 
 int main(){
 
-DIO_initall();
+	DIO_initall();
 	EXI_INIT(INT0,Any_Logical_Level);
 	EXI_INIT(INT1,Any_Logical_Level);
 	EXI_ENABLE(INT0);
 	EXI_ENABLE(INT1);
-sei();
+	sei();
 	while(1){
 
 	}
@@ -34,11 +34,11 @@ sei();
 
 ISR(INT0_vect)
 {
-	DIO_writepin(0,HIGH);
+	//DIO_writepin(0,HIGH);
 
-/*static uint8 x=0;
-x=x^1;
-DIO_writepin(0,x);*/
+	static uint8 x=0;
+	x=x^1;
+	DIO_writepin(0,x);
 }
 
 ISR(INT1_vect)
